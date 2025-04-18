@@ -3,3 +3,4 @@ data/NWSS_Public_SARS-CoV-2_Wastewater_Metric_Data_20250307.csv
 *.Rproj.user
 .Rhistory
 .Rproj.user
+.RData
