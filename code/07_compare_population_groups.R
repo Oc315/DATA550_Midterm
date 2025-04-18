@@ -20,8 +20,7 @@ data <- data %>%
 filtered_data <- data %>%
   filter(!is.na(percentile), percentile < 999)
 
-# Create and save the stratified comparison boxplot
-ggplot(filtered_data, aes(x = pop_group, y = percentile, fill = pop_group)) +
+p <- ggplot(filtered_data, aes(x = pop_group, y = percentile, fill = pop_group)) +
   geom_boxplot() +
   labs(
     title = "Comparison of Viral Load Percentile by Population Group",
@@ -31,5 +30,5 @@ ggplot(filtered_data, aes(x = pop_group, y = percentile, fill = pop_group)) +
   theme_minimal() +
   theme(legend.position = "none")
 
-# Save the plot
-ggsave("output/population_group_comparison.png", width = 8, height = 6, dpi = 300)
+ggsave("output/population_group_comparison.png", plot = p, width = 8, height = 6, dpi = 300)
+

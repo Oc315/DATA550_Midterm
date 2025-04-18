@@ -27,7 +27,7 @@ summary_df <- data %>%
 
 # Plot using updated syntax and variable
 
-ggplot(summary_df, aes(x = date_start, y = mean_percentile, color = pop_group)) +
+p <- ggplot(summary_df, aes(x = date_start, y = mean_percentile, color = pop_group)) +
   geom_line(linewidth = 0.8) +
   labs(
     title = "SARS-CoV-2 Wastewater Viral Load Trends by Population Group",
@@ -36,6 +36,6 @@ ggplot(summary_df, aes(x = date_start, y = mean_percentile, color = pop_group)) 
     color = "Population Group"
   ) +
   theme_minimal()
-# Save the last plot to the output folder
-ggsave("output/viral_load_trend_by_population.png", width = 10, height = 6, dpi = 300)
+
+ggsave("output/viral_load_trend_by_population.png", plot = p, width = 10, height = 6, dpi = 300)
 
