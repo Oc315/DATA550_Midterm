@@ -24,3 +24,4 @@ output/population_group_comparison.png: code/07_compare_population_groups.R
 
 clean:
 	rm -f output/*.rds output/*.png report.html
+
