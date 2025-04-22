@@ -1,8 +1,42 @@
 ---
 title: "DATA 550 Midterm Project"
-author: "Zekarias Mengiste"
+author: "Oceanus, Taiko, Zak"
 output: html_document
 ---
+# SARS-CoV-2 concentrations in wastewater samples in the United States
+
+We analyzed the CDC Wastewater Surveillance Data. This dataset provides historical SARS-CoV-2 concentrations in wastewater samples from locations across the United States, which can be used to understand regional trends in viral spread over time.
+Data source: NWSS Public SARS-CoV-2 Wastewater Metric DataLinks to an external site.
+
+## Temporal trends in national-level viral load
+
+```{r, echo=FALSE, fig.align="center", out.width="90%"}
+knitr::include_graphics(here::here("output", "national_trend_plot.png"))
+```
+
+## Viral concentration by states
+
+```{r, echo=FALSE, fig.align="center", out.width="90%"}
+
+state_avg <- base::readRDS(here::here("output", "state_avg.rds"))
+
+knitr::kable(state_avg)
+```
+
+## Top 10 regions with the highest average viral concentrations
+
+```{r, echo=FALSE, fig.align="center", out.width="90%"}
+top10 <- base::readRDS(here::here("output", "top10_counties.rds"))
+
+knitr::kable(top10)
+```
+
+## Dot plot of the viral concentration by states
+
+```{r, echo=FALSE, fig.align="center", out.width="90%"}
+knitr::include_graphics(here::here("output", "regional_dotplot.png"))
+```
+
 ## Viral Load Trends by Population Size
 
 This section explores how SARS-CoV-2 viral concentrations vary based on the population served by each wastewater treatment plant.
