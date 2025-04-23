@@ -10,8 +10,9 @@ output/national_trend.rds: code/01_clean_data.R code/02_summarize_national_trend
 output/state_avg.rds: code/03_state_avg.R
 	Rscript code/03_state_avg.R
 
-output/top10.rds: code/04_top10.R
+output/top10_counties.rds: code/04_top10.R
 	Rscript code/04_top10.R
+
 
 output/regional_dotplot.png: code/05_state_dotplot.R
 	Rscript code/05_state_dotplot.R
