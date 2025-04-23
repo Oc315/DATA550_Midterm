@@ -1,6 +1,6 @@
 all: report.html
 
-report.html: output/national_trend.rds output/regional_dotplot.png output/population_plot.png output/population_group_comparison.png
+report.html: output/national_trend.rds output/state_avg.rds output/top10_counties.rds output/regional_dotplot.png output/population_plot.png output/population_group_comparison.png
 	Rscript -e "rmarkdown::render('report/report.Rmd', output_file = 'report.html')"
 
 output/national_trend.rds: code/01_clean_data.R code/02_summarize_national_trend.R

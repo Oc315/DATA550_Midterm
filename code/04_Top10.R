@@ -1,6 +1,11 @@
+library(tidyverse)
+library(here)
+
 # get the average by the county and select top 10
+data <- readRDS("output/clean_data.rds")
+
 county_avg <- data %>%
-  filter(!is.na(ptc_15d), !is.na(county_names), !is.na(reporting_jurisdiction)) %>%
+  dplyr::filter(!is.na(county_names), !is.na(reporting_jurisdiction)) %>%
   group_by(county_names, reporting_jurisdiction) %>%
   summarise(mean_ptc_15d = mean(ptc_15d, na.rm = TRUE), .groups = "drop") %>%
   arrange(desc(mean_ptc_15d)) %>%
@@ -13,3 +18,4 @@ county_avg <- data %>%
 
 # save
 write_rds(county_avg, here("output/top10_counties.rds"))
+
